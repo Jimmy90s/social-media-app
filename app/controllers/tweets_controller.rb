@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /tweets or /tweets.json
   def index
@@ -25,7 +26,7 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to tweet_url(@tweet), notice: "Tweet was successfully created." }
+        format.html { redirect_to dashboard_path, notice: "Tweet was successfully created." }
         format.json { render :show, status: :created, location: @tweet }
       else
         format.html { render :new, status: :unprocessable_entity }
