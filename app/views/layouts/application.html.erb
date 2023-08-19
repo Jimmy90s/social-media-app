@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <% if flash.any? %> 
+     <%= render 'shared/flashes' %>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

@@ -1,5 +1,6 @@
 require 'rails_helper'
 RSpec.describe "Tweets", type: :request do
+  let(:user) { create(:user) }
   describe "POST create" do
     context "when not signed in" do
       it "is responds with redirect" do
@@ -13,7 +14,6 @@ RSpec.describe "Tweets", type: :request do
     end
     context "when logged in" do
       it "creates a new tweet" do
-        user = create(:user)
         sign_in user
         expect do
           post tweets_path, params: { 
