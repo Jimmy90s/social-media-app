@@ -1,12 +1,81 @@
-<div class="container">
+<div class="container ">
 
   <div class="row">
-    <div class="col-sm">
-      <%= link_to "Log out", destroy_user_session_path,
-        method: :delete,
-        class:  "btn btn-primary btn-lg" %>
-    </div>
-    <div class="col-sm">
+
+    <aside class="col side-navbar" ><!--offset-sm-1-->
+
+      <%= link_to root_path, class: "d-flex align-items-center fs-5 mb-2" do %>
+        <div class="div_hover rounded-pill px-4 py-2"> 
+          <span class="me-2 position-relative text-left" style="bottom: 3px">  
+            <%= image_tag "home-fill.svg" %> </span> 
+        </div>
+      <%end%>
+
+      <%= link_to root_path, class: "d-flex align-items-center fs-5 mb-2" do %>
+
+        <div class="div_hover rounded-pill px-4 py-2"> 
+        <span class="me-2 position-relative text-left" style="bottom: 3px">  
+          <%= image_tag "home-fill.svg" %> </span> <strong>Home</strong>
+        </div>
+      <%end%>
+
+      <%= link_to root_path, class: "d-flex align-items-center fs-5 mb-2" do %>
+
+        <div class="div_hover rounded-pill px-4 py-2"> 
+        <span class="me-2 position-relative" style="bottom: 3px">  
+          <%= image_tag "home-fill.svg" %> </span> Explore
+        </div>  
+      <%end%>
+
+      <%= link_to root_path, class: "d-flex align-items-center fs-5 mb-2" do %>
+
+        <div class="div_hover rounded-pill px-4 py-2"> 
+        <span class="me-2 position-relative" style="bottom: 3px">  
+          <%= image_tag "home-fill.svg" %> </span> Notifications 
+        </div>
+      <%end%>
+
+      <%= link_to root_path, class: "d-flex align-items-center fs-5 mb-2" do %>
+        <div class="div_hover rounded-pill px-4 py-2"> 
+        <span class="me-2 position-relative" style="bottom: 3px">  
+          <%= image_tag "home-fill.svg" %> </span> Notifications 
+        </div>
+      <%end%>
+
+      <%= link_to root_path, class: "d-flex align-items-center fs-5 mb-2" do %>
+        <div class="div_hover rounded-pill px-4 py-2"> 
+        <span class="me-2 position-relative" style="bottom: 3px">  
+          <%= image_tag "home-fill.svg" %> </span> Messages
+        </div>
+      <%end%>
+
+      <%= link_to root_path, class: "d-flex align-items-center fs-5 mb-2" do %>
+        <div class="div_hover rounded-pill px-4 py-2"> 
+        <span class="me-2 position-relative" style="bottom: 3px">  
+          <%= image_tag "home-fill.svg" %> </span> Bookmarks
+        </div>
+      <%end%>
+
+      <%= link_to root_path, class: "d-flex align-items-center fs-5 mb-2" do %>
+        <div class="div_hover rounded-pill px-4 py-2"> 
+        <span class="me-2 position-relative" style="bottom: 3px">  
+          <%= image_tag "home-fill.svg" %> </span> Profile 
+        </div>
+      <%end%>
+
+      <div class="d-flex align-items-center fs-5 mb-2 px-4">
+        <%= button_tag "Post", class: "btn btn-primary rounded-pill" %>
+      </div>
+
+      <div> 
+        <%= link_to "Log out", destroy_user_session_path,
+          method: :delete,
+          class:  "btn btn-primary btn-lg" %>
+      </div>
+
+    </aside>
+
+    <div class="col text-center">
       <%= form_with model: Tweet.new, url: tweets_path , local: true do |f| %>
         <%= f.text_field :body %>
         <%= f.submit %>
@@ -17,8 +86,10 @@
         <%end%>
       </ul>
     </div>
-    <div class="col-sm">
+
+    <div class="col text-center">
       One of three columns
     </div>
   </div>
+
 </div>
