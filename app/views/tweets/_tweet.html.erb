@@ -1,12 +1,18 @@
-<div id="<%= dom_id tweet %>">
-  <p>
-    <strong>User:</strong>
-    <%= tweet.user_id %>
-  </p>
+<div class="div_hover rounded px-4 py-2", id="<%= dom_id tweet %>">
+  <% if (Time.zone.now - tweet.created_at) > 1.day %>
+    <p>
+    <strong><%= tweet.user.username %></strong> 
+    <small><%= tweet.created_at.strftime("%b %-d") %></small>
+    </p>
+  <% else %>
+    <p>
+    <strong><%= tweet.user.username %></strong> 
+    <small class="text-muted"><%= time_ago_in_words(tweet.created_at) %></small>
+    </p>
+  <% end %>
 
   <p>
-    <strong>Body:</strong>
-    <%= tweet.body %>
+  <%= tweet.body %>
   </p>
 
 </div>
