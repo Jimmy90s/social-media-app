@@ -2,13 +2,14 @@
   <div class="mb-3">
     <%= link_to "Home", dashboard_path, class:"fs-5 text-decoration-none text black fw-semibold" %>
   </div>
-  <%= render "shared/tweet_form" %>
-  <%= render Tweet.order(created_at: :desc) %>
+  <%= render "shared/tweet_form",class: "fixed-top" %>
+  <div id="tweets">
+    <%= render Tweet.order(created_at: :desc) %>
+  </div>
 </div>
 
-<div class="col text-center mt-3">
-  One of three columns
-</div>
+  <div class="col text-center mt-3">
+    One of three columns
+  </div>
 </div>
 
-</div>
