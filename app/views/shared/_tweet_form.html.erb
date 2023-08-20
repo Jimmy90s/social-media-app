@@ -1,21 +1,6 @@
-<div class="col-6 mt-3">
   <%= form_with model: Tweet.new, url: tweets_path ,method: :post, local: true do |f| %>
     <%= f.text_area :body ,placeholder: "Whats happening?", class: "form-control border-0 fs-5 w-80" %>
     <div class="d-flex justify-content-end">
       <%= f.submit "Create Post",class: "btn btn-primary rounded-pill mt-3" %>
     </div>
-
   <%end%>
-  <ul>
-    <% Tweet.find_each do |tweet|%>
-      <li> <%= tweet.body %></li>
-    <%end%>
-  </ul>
-</div>
-
-<div class="col text-center mt-3">
-  One of three columns
-</div>
-</div>
-
-</div>

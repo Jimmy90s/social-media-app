@@ -12,10 +12,20 @@
 
   <body>
     <% if flash.any? %> 
-     <%= render 'shared/flashes' %>
+      <%= render 'shared/flashes' %>
     <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <!--    <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    -->
+    <% if user_signed_in? %>
+      <div class="container py-2 w-75">   
+        <div class="row">
+          <%= render "shared/sidebar" %>
+          <%= yield %>
+        </div>
+      </div>
+    <%else%>
+      <%= yield %>
+    <%end%>
   </body>
 </html>
