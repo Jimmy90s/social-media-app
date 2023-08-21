@@ -1,13 +1,19 @@
-<div class="div_hover rounded-4 px-4 py-2 mt-2", id="<%= dom_id tweet %>">
-  <% if (Time.zone.now - tweet.created_at) > 1.day %>
-    <p class="text-muted">@<%= tweet.user.username %><small><%= tweet.created_at.strftime("%b %-d") %></small>
-    </p>
-  <% else %>
-    <p class="text-muted">@<%= tweet.user.username %> <small ><%= time_ago_in_words(tweet.created_at) %></small></p>
-  <% end %>
+<div class="div_hover rounded-4 py-1 mt-2", id="<%= dom_id tweet %>">
+  <div class="d-flex ">
+    <div class="flex-shrink-1 ">
+      <%= image_tag tweet.user.avatar, size: "45", class:"rounded-circle" %>
+    </div>
+    <div class="flex-grow-1 ms-2">
+      <% if (Time.zone.now - tweet.created_at) > 1.day %>
+        <p class="text-muted mb-0"><strong class="fs-5"><%= tweet.user.display_name %></strong> @<%= tweet.user.username %><small><%= tweet.created_at.strftime("%b %-d") %></small>
+        </p>
+      <% else %>
+        <p class="text-muted mb-0"><strong class="fs-5"><%= tweet.user.display_name %></strong> @<%= tweet.user.username %> <small ><%= time_ago_in_words(tweet.created_at) %></small></p>
+      <% end %>
 
-  <p class="text-muted">
-  <%= tweet.body %>
-  </p>
-
+      <p class="text-muted">
+      <%= tweet.body %>
+      </p>
+    </div>
+  </div>
 </div>

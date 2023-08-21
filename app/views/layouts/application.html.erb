@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag asset_path("icons8-logo-48.png") %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
@@ -18,14 +19,18 @@
       <p class="alert"><%= alert %></p>
     -->
     <% if user_signed_in? %>
-      <div class="container py-2 w-75">   
-        <div class="row">
-          <%= render "shared/sidebar" %>
+        <% if controller_name == "usernames" %>
           <%= yield %>
-        </div>
-      </div>
-    <%else%>
-      <%= yield %>
-    <%end%>
+        <% else %> 
+          <div class="container py-2 w-75">   
+            <div class="row">
+              <%= render "shared/sidebar" %>
+              <%= yield %>
+            </div>
+          </div>
+        <% end %>
+      <%else%>
+        <%= yield %>
+      <%end%>
   </body>
 </html>
